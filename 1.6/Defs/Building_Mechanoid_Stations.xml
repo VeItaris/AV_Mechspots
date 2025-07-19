@@ -1,0 +1,473 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+ 
+
+
+	<!-- Mech work station Parent -->
+	<ThingDef Name="AV_MechStation_Base" ParentName="FurnitureBase" Abstract="True">
+		<tickerType>Normal</tickerType>
+		<drawerType>RealtimeOnly</drawerType>
+		<size>(1,1)</size>
+		<passability>Standable</passability>
+		<rotatable>false</rotatable>
+		<castEdgeShadows>false</castEdgeShadows>
+		<altitudeLayer>FloorEmplacement</altitudeLayer>	<!-- for shadows going over it -->
+		<socialPropernessMatters>true</socialPropernessMatters>
+		<pathCost>30</pathCost>	
+		<fillPercent>0.0</fillPercent>				<!-- cover	-->
+		<defaultPlacingRot>South</defaultPlacingRot>
+		<designationCategory>Biotech</designationCategory>
+		<uiOrder>2000</uiOrder>
+		<drawGUIOverlay>true</drawGUIOverlay>	<!-- allows assignment overlay	-->
+		<minifiedDef>MinifiedThing</minifiedDef>
+		<canOverlapZones>false</canOverlapZones>		
+		<building>
+			<!-- <isSittable>true</isSittable> -->
+			<paintable>true</paintable>
+			<buildingTags>
+				<li>Biotech</li>
+			</buildingTags>
+			<ai_chillDestination>false</ai_chillDestination>
+			<allowWireConnection>true</allowWireConnection>		<!-- allows OTHER divices to be connected via wire to this, also works without this...  -->
+		</building>
+		<constructionSkillPrerequisite>5</constructionSkillPrerequisite>
+		<tradeTags Inherit='False'>	
+			<li>AV_Mechtech_Spacer</li>
+			<li>AV_Mechtech</li>
+			<li>AV_MechSpot</li>
+		</tradeTags>
+		<modExtensions>
+            <li Class="AV_Framework.PsycicDisturber">
+                <isPsycicDisturber>true</isPsycicDisturber>
+            </li>
+        </modExtensions>
+    </ThingDef>
+
+
+	<!-- Mech work station -->
+	<ThingDef ParentName="AV_MechStation_Base">
+		<defName>AV_Mechworkstation</defName>
+		<label>mech socket</label>
+		<description>A rainproof mechanoid work station designed to improve the efficiency of mechanoid workers.\nIt connects to any mechanoid on top, optimizing the performance and reducing the energy consumption rate, resulting in less toxic waste over time.\nIt interferes with other mechanoid workstations in the vicinity and requires a direct connection to a power conduit.\n\n&lt;color=#f8f32b&gt;Gameplay note:&lt;/color&gt;\nPlace this like a chair on the interaction spot of workbenches. Mechs don't need to be assigned to this building to gain its benefits - just be ontop of it.\n\n&lt;color=#f8f32b&gt;Mod settings note:&lt;/color&gt;\nThe interfering part only refers to the inability to place them next to each other. This can be changed in the mod settings.</description>
+		<uiOrder>2002</uiOrder>
+		<graphicData>
+			<texPath>Things/Building/MechSockets/AV_MechWorkSocket</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawRotated>false</drawRotated>
+			<damageData>
+				<rect>(0.3,0.62,0.5,0.68)</rect>
+			</damageData>
+			<drawOffset>(0,0,-0.3)</drawOffset> <!-- ?,?,y   minus = down -->
+			<drawSize>1,2</drawSize>
+		</graphicData>
+		<size>(1,1)</size>
+		<uiIconScale>1.5</uiIconScale>
+		<fillPercent>0.2</fillPercent>	
+		<statBases>
+			<MaxHitPoints>100</MaxHitPoints>
+			<WorkToBuild>1500</WorkToBuild>
+			<Mass>5</Mass>
+			<Flammability>0.5</Flammability>
+			<Beauty>0</Beauty>
+			<Comfort>0.40</Comfort>
+		</statBases>
+		<costList>
+			<Steel>40</Steel>
+			<SubcoreBasic>1</SubcoreBasic>
+		</costList>
+		<researchPrerequisites>
+			<li>AV_Machanoid_Sockets</li>
+		</researchPrerequisites>
+		<comps>
+			<li Class="AV_Mechspots.CompProperties_AssignableToMech">			
+				<compClass>AV_Mechspots.CompAssignableToMech</compClass>
+				<AllowCombatMechs>false</AllowCombatMechs>
+				<AllowNonCombatMechs>false</AllowNonCombatMechs>
+			</li> 
+			<li Class="CompProperties_Power">
+			    <compClass>CompPowerTrader</compClass>				
+				<transmitsPower>true</transmitsPower>
+				<basePowerConsumption>80</basePowerConsumption>	
+				<!-- <idlePowerDraw>150</idlePowerDraw> -->			<!-- always considered idle from game -->	
+				<shortCircuitInRain>false</shortCircuitInRain>
+			</li>	
+			<li Class="AV_Mechspots.CompProperties_GiveHediffAbove">
+			    <compClass>AV_Mechspots.Comp_GiveHediffAbove</compClass>				
+				<onlyassigned>false</onlyassigned>
+				<onlyTargetMechs>true</onlyTargetMechs>
+				<hediff>AV_MechWorkBoost</hediff>
+				<drawLine>false</drawLine>	
+			</li>		
+			<li Class="CompProperties_Flickable"/>
+			<li Class="CompProperties_Breakdownable"/>	
+		</comps>	
+	</ThingDef>
+
+	<!-- mechanoid work boost --> 
+	<HediffDef>
+		<defName>AV_MechWorkBoost</defName>
+		<label>work mode</label>
+		<description>This mechanoid's performance has been optimised by a mechanoid socket.</description>
+		<hediffClass>HediffWithComps</hediffClass>
+		<defaultLabelColor>(0.52, 1, 0.95)</defaultLabelColor>
+		<comps>
+			<li Class="HediffCompProperties_Disappears">
+				<disappearsAfterTicks>30</disappearsAfterTicks>
+				<showRemainingTime>false</showRemainingTime>
+			</li>
+			<li Class="HediffCompProperties_DisappearsOnDeath"/>
+		</comps>
+		<stages>
+			<li>
+				<capMods>
+					<li>
+						<capacity>Consciousness</capacity>
+						<offset>0.35</offset>
+					</li>
+				</capMods>
+				<statOffsets>
+					<!-- <AimingDelayFactor>-0.20</AimingDelayFactor> -->
+				</statOffsets>
+				<statFactors>
+					<MechEnergyUsageFactor>0.75</MechEnergyUsageFactor>
+				</statFactors>
+			</li>
+		</stages>
+		<isBad>false</isBad>
+	</HediffDef>
+
+
+	<!-- Mech charging station -->
+	<ThingDef ParentName="AV_MechStation_Base">
+		<defName>AV_Mechchargingstation</defName>
+		<label>charging socket</label>
+		<description>A mechanoid charging station designed for charging an inactive mechanoid unit.\nIt connects to an assigned mech on top, bringing it to a near shut down state, reducing the energy consumption and slowly charging its energy core.\nIt consumes a lot of power but does not produce toxic waste.\nIt interferes with other mechanoid workstations in the vicinity and requires a direct connection to a power conduit.\n\n&lt;color=#f8f32b&gt;Gameplay note:&lt;/color&gt;\nUse this for more important mechs which should always have energy.\n\n&lt;color=#f8f32b&gt;Mod settings note:&lt;/color&gt;\nThe interfering part only refers to the inability to place them next to each other. This can be changed in the mod settings.\nRecharging efficiency and waste production can be adjusted in the mod settings.</description>
+		<uiOrder>2004</uiOrder>
+		<graphicData>
+			<texPath>Things/Building/MechSockets/AV_MechChargingSocket</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawRotated>false</drawRotated>
+			<damageData>
+				<rect>(0.3,0.62,0.5,0.68)</rect>
+			</damageData>
+			<drawOffset>(0,0,-0.3)</drawOffset> <!-- ?,?,y   minus = down -->
+			<drawSize>1,2</drawSize>
+		</graphicData>
+		<size>(1,1)</size>
+		<uiIconScale>1.5</uiIconScale>		
+		<fillPercent>0.2</fillPercent>	
+		<statBases>
+			<MaxHitPoints>100</MaxHitPoints>
+			<WorkToBuild>1500</WorkToBuild>
+			<Mass>5</Mass>
+			<Flammability>0.5</Flammability>
+			<Beauty>0</Beauty>
+			<Comfort>0.40</Comfort>
+		</statBases>
+		<costList>
+			<Steel>50</Steel>
+			<AV_EnergyCell MayRequire="Veltaris.Jade" >1</AV_EnergyCell>
+			<SubcoreBasic>1</SubcoreBasic>
+		</costList>
+		<researchPrerequisites>
+			<li>AV_Machanoid_Sockets</li>
+			<li>AV_Pulse_Charger</li>
+		</researchPrerequisites>
+		<comps>
+			<li Class="AV_Mechspots.CompProperties_ChargeSpot">			
+				<compClass>AV_Mechspots.Comp_ChargeSpot</compClass>
+				<standinghediff>AV_MechChargeBoost</standinghediff>
+				<superchargedhediff>AV_MechSuperChargedBoost</superchargedhediff>
+			</li>
+			<li Class="CompProperties_Power">
+			    <compClass>AV_Mechspots.CompPowerCharger</compClass>			
+				<transmitsPower>true</transmitsPower>
+				<basePowerConsumption>50</basePowerConsumption> <!-- changed with power settings -->	
+				<!-- <idlePowerDraw>150</idlePowerDraw> -->			<!-- always considered idle from game -->	
+				<shortCircuitInRain>true</shortCircuitInRain>
+			</li>
+			<li Class="AV_Mechspots.CompProperties_AssignableToMech">		<!-- is on Top bool in here? -->	
+				<compClass>AV_Mechspots.CompAssignableToMech</compClass>
+				<AllowCombatMechs>false</AllowCombatMechs>
+				<AllowNonCombatMechs>true</AllowNonCombatMechs>
+			</li>
+			<li Class="AV_Mechspots.CompProperties_GiveHediffAbove">
+			    <compClass>AV_Mechspots.Comp_GiveHediffAbove</compClass>				
+				<onlyassigned>true</onlyassigned>
+				<onlyTargetMechs>true</onlyTargetMechs>
+				<hediff>AV_MechChargeBoost</hediff>
+				<drawLine>false</drawLine>	
+			</li>			
+			<li Class="CompProperties_Flickable"/>
+			<li Class="CompProperties_Breakdownable"/>	
+		</comps>	
+	</ThingDef>
+
+	<!-- mechanoid charge boost --> 
+	<HediffDef>
+		<defName>AV_MechChargeBoost</defName>
+		<label>charging mode</label>
+		<description>This mechanoid is in a near shutdown state and charging its power cell. It will periodicaly wake up to check for work.</description>
+		<hediffClass>HediffWithComps</hediffClass>
+		<defaultLabelColor>(0.52, 1, 0.95)</defaultLabelColor>
+		<comps>
+			<li Class="HediffCompProperties_Disappears">
+				<disappearsAfterTicks>30</disappearsAfterTicks>
+				<showRemainingTime>false</showRemainingTime>
+			</li>
+			<li Class="HediffCompProperties_DisappearsOnDeath"/>
+		</comps>
+		<stages>
+			<li>
+				<statFactors>
+					<WorkSpeedGlobal>0.1</WorkSpeedGlobal>
+					<MechEnergyUsageFactor>0.01</MechEnergyUsageFactor>
+				</statFactors>
+			</li>
+		</stages>
+		<isBad>false</isBad>
+	</HediffDef>
+
+	<!-- mechanoid supercharged boost --> 
+	<HediffDef>
+		<defName>AV_MechSuperChargedBoost</defName>
+		<label>supercharged</label>
+		<description>The energy cell of this mechanoid was slowly overloaded, resulting in a miscalculation at the data processor, which now allocats much more energy to its systems than necessary. The data processor needs some time to correct this behaviour.</description>
+		<hediffClass>HediffWithComps</hediffClass>
+		<defaultLabelColor>(0.52, 1, 0.95)</defaultLabelColor>
+		<comps>
+			<li Class="HediffCompProperties_Disappears">
+				<disappearsAfterTicks>10000</disappearsAfterTicks>	<!-- 6 hours --> 
+				<showRemainingTime>true</showRemainingTime>
+			</li>
+			<li Class="HediffCompProperties_DisappearsOnDeath"/>
+		</comps>
+		<stages>
+			<li>
+				<capMods>
+					<li>
+						<capacity>Moving</capacity>
+						<offset>0.10</offset>
+					</li>
+				</capMods>
+				<statFactors>
+					<WorkSpeedGlobal>1.05</WorkSpeedGlobal>
+					<MechEnergyUsageFactor>1.10</MechEnergyUsageFactor>
+				</statFactors>
+			</li>
+		</stages>
+		<isBad>false</isBad>
+	</HediffDef>
+
+
+	<!-- Mech guard repeater -->
+	<ThingDef ParentName="AV_MechStation_Base">
+		<defName>AV_MechguardingRepeater</defName>
+		<label>mech spot</label>
+		<description>A simple disk with a signal distributor.\nThis signal can be used to get an assigned mechanoid to this specifc spot.\nRequires a low amount of power.</description>
+		<uiOrder>2001</uiOrder>
+		<graphicData>
+			<texPath>Things/Building/MechSockets/AV_MechSpot</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawRotated>false</drawRotated>
+			<damageData>
+				<rect>(0.3,0.62,0.5,0.68)</rect>
+			</damageData>
+			<drawOffset>(0,0,-0.3)</drawOffset> <!-- ?,?,y   minus = down -->
+			<drawSize>1,2</drawSize>
+		</graphicData>
+		<size>(1,1)</size>
+		<uiIconScale>1.0</uiIconScale>	
+		<statBases>
+			<MaxHitPoints>40</MaxHitPoints>
+			<WorkToBuild>200</WorkToBuild>
+			<Mass>5</Mass>
+			<Flammability>1.0</Flammability>
+			<Beauty>-5</Beauty>
+			<Comfort>0.40</Comfort>
+		</statBases>
+		<costList>
+			<Steel>10</Steel>
+			<ComponentIndustrial>1</ComponentIndustrial>
+		</costList>
+		<researchPrerequisites>
+			<li>BasicMechtech</li>
+		</researchPrerequisites>
+		<comps Inherit='False'>
+			<li Class="CompProperties_Power">
+			    <compClass>CompPowerTrader</compClass>				
+				<transmitsPower>false</transmitsPower>
+				<basePowerConsumption>10</basePowerConsumption>	
+				<!-- <idlePowerDraw>250</idlePowerDraw> -->			<!-- always considered idle from game -->	
+				<shortCircuitInRain>false</shortCircuitInRain>
+			</li>			
+			<li Class="CompProperties_Flickable" />
+			<li Class="CompProperties_Breakdownable"/>	
+			<li Class="AV_Mechspots.CompProperties_AssignableToMech">				
+				<compClass>AV_Mechspots.CompAssignableToMech</compClass>
+				<AllowCombatMechs>true</AllowCombatMechs>
+				<AllowNonCombatMechs>true</AllowNonCombatMechs>
+			</li> 
+		</comps>
+		<placeWorkers Inherit='False'>
+			<!-- nothing in here! -->
+		</placeWorkers>		
+		<modExtensions Inherit='False'>
+            <!-- nothing in here! -->
+        </modExtensions>		
+	</ThingDef>
+
+	<!-- entrenched Mech guard repeater -->
+	<ThingDef ParentName="AV_MechStation_Base">
+		<defName>AV_EntrenchedSpot</defName>
+		<label>entrenched mech spot</label>
+		<description>An entrenched signal distributor.\nThis signal can be used to get an assigned mechanoid to this specifc spot.\nRequieres a low amount of power.</description>
+		<uiOrder>2001</uiOrder>
+		<graphicData>
+			<texPath>Things/Building/MechSockets/AV_entrenched_socket</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawRotated>false</drawRotated>
+			<damageData>
+				<rect>(0.3,0.62,0.5,0.68)</rect>
+			</damageData>
+			<drawOffset>(0,0,-0.3)</drawOffset> <!-- ?,?,y   minus = down -->
+			<drawSize>1,2</drawSize>
+		</graphicData>
+		<size>(1,1)</size>
+		<uiIconScale>1.5</uiIconScale>		
+		<statBases>
+			<MaxHitPoints>440</MaxHitPoints>
+			<WorkToBuild>1200</WorkToBuild>
+			<Mass>10</Mass>
+			<Flammability>0.25</Flammability>
+			<Beauty>-5</Beauty>
+			<Comfort>0.40</Comfort>
+		</statBases>
+		<costList>
+			<Steel>80</Steel>
+			<ComponentIndustrial>1</ComponentIndustrial>
+		</costList>
+		<researchPrerequisites>
+			<li>BasicMechtech</li>
+		</researchPrerequisites>
+		<comps Inherit='False'>
+			<li Class="CompProperties_Power">
+			    <compClass>CompPowerTrader</compClass>				
+				<transmitsPower>false</transmitsPower>
+				<basePowerConsumption>10</basePowerConsumption>	
+				<!-- <idlePowerDraw>250</idlePowerDraw> -->			<!-- always considered idle from game -->	
+				<shortCircuitInRain>false</shortCircuitInRain>
+			</li>			
+			<li Class="CompProperties_Flickable" />
+			<li Class="CompProperties_Breakdownable"/>	
+			<li Class="AV_Mechspots.CompProperties_AssignableToMech">				
+				<compClass>AV_Mechspots.CompAssignableToMech</compClass>
+				<AllowCombatMechs>true</AllowCombatMechs>
+				<AllowNonCombatMechs>false</AllowNonCombatMechs>
+			</li> 
+		</comps>
+		<placeWorkers Inherit='False'>
+			<!-- nothing in here! -->
+		</placeWorkers>		
+		<modExtensions Inherit='False'>
+            <!-- nothing in here! -->
+        </modExtensions>		
+	</ThingDef>
+
+
+	<!-- Mech guard station -->
+	<ThingDef ParentName="AV_MechStation_Base">
+		<defName>AV_Mechguardstation</defName>
+		<label>mech combat socket</label>
+		<description>A reinforced mechanoid station which puts the connected mechanoid into a near shut down state, only keeping its sensors fully operational.\nThis significantly reduces the mech's energy requirements.\nWhen danger is perceved it wakes the mech up while boosting its combat capabilities.\nIts psycic disturbance interferes with other mechanoid sockets in the vicinity and requires a direct connection to a power conduit.\nWhile this can be a reliable defence spot for friendly mechanoids, the designer prefered a fast assignment switch which in turn does not care to what faction the connected mechanoid belongs.\n\n&lt;color=#f8f32b&gt;Gameplay note:&lt;/color&gt;\nMechs don't need to be assigned to this building to gain its benefits - just be ontop of it. Effects enemy mechs as well.\n\n&lt;color=#f8f32b&gt;Mod settings note:&lt;/color&gt;\nThe interfering part only refers to the inability to place them next to each other. This can be changed in the mod settings.</description>
+		<uiOrder>2003</uiOrder>
+		<graphicData>
+			<texPath>Things/Building/MechSockets/AV_MechGuardingSocket</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawRotated>false</drawRotated>
+			<damageData>
+				<rect>(0.3,0.62,0.5,0.68)</rect>
+			</damageData>
+			<drawOffset>(0,0,-0.3)</drawOffset> <!-- ?,?,y   minus = down -->
+			<drawSize>1,2</drawSize>
+		</graphicData>
+		<size>(1,1)</size>
+		<uiIconScale>1.5</uiIconScale>	
+		<fillPercent>0.2</fillPercent>			
+		<statBases>
+			<MaxHitPoints>250</MaxHitPoints>
+			<WorkToBuild>1500</WorkToBuild>
+			<Mass>5</Mass>
+			<Flammability>0.5</Flammability>
+			<Beauty>0</Beauty>
+			<Comfort>0.40</Comfort>
+		</statBases>
+		<costList>
+			<Plasteel>10</Plasteel>
+			<Steel>50</Steel>
+			<SubcoreBasic>1</SubcoreBasic>
+		</costList>
+		<researchPrerequisites>
+			<li>AV_Machanoid_Sockets</li>
+		</researchPrerequisites>
+		<comps>
+			<li Class="CompProperties_Power">
+			    <compClass>CompPowerTrader</compClass>				
+				<transmitsPower>true</transmitsPower>
+				<basePowerConsumption>100</basePowerConsumption>	
+				<!-- <idlePowerDraw>200</idlePowerDraw> -->			<!-- always considered idle from game -->	
+				<shortCircuitInRain>false</shortCircuitInRain>
+			</li>
+			<li Class="AV_Mechspots.CompProperties_AssignableToMech">				
+				<compClass>AV_Mechspots.CompAssignableToMech</compClass>
+				<AllowCombatMechs>true</AllowCombatMechs>
+				<AllowNonCombatMechs>false</AllowNonCombatMechs>
+			</li> 			
+			<li Class="AV_Mechspots.CompProperties_GiveHediffAbove">
+			    <compClass>AV_Mechspots.Comp_GiveHediffAbove</compClass>				
+				<onlyassigned>false</onlyassigned>
+				<onlyTargetMechs>true</onlyTargetMechs>
+				<hediff>AV_MechGuardBoost</hediff>
+				<drawLine>false</drawLine>	
+			</li>							
+			<li Class="CompProperties_Flickable" />
+			<li Class="CompProperties_Breakdownable"/>	
+		</comps>	
+	</ThingDef>
+
+	<!-- mechanoid guarding boost --> 
+	<HediffDef>
+		<defName>AV_MechGuardBoost</defName>
+		<label>guarding mode</label>
+		<description>This mechanoid's performance has been optimised by a mechanoid guard socket.</description>
+		<hediffClass>HediffWithComps</hediffClass>
+		<defaultLabelColor>(0.52, 1, 0.95)</defaultLabelColor>
+		<comps>
+			<li Class="HediffCompProperties_Disappears">
+				<disappearsAfterTicks>30</disappearsAfterTicks>
+				<showRemainingTime>false</showRemainingTime>
+			</li>
+			<li Class="HediffCompProperties_DisappearsOnDeath"/>
+		</comps>
+		<stages>
+			<li>
+				<capMods>
+					<li>
+						<capacity>Consciousness</capacity>
+						<offset>0.2</offset>
+					</li>
+				</capMods>
+				<statOffsets>
+					<AimingDelayFactor>-0.20</AimingDelayFactor>
+				</statOffsets>
+				<statFactors>
+					<ShootingAccuracyPawn>1.8</ShootingAccuracyPawn>		<!-- 3 = accuracy times 300% -->
+					<MechEnergyUsageFactor>0.1</MechEnergyUsageFactor>
+				</statFactors>
+			</li>
+		</stages>
+		<isBad>false</isBad>
+	</HediffDef>
+	
+	
+</Defs>

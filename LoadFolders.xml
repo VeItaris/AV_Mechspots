@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<loadFolders>
+	<v1.5>
+		<li>/</li>
+		<li>1.5</li>
+		<li IfModActive="Veltaris.Mechtech">1.5/Mods/Mechtech</li>
+		<li IfModActive="Veltaris.Jade">1.5/Mods/Jade</li>
+		<li>CentredModSettings</li><!-- loaded last for patches -->
+	 	<!-- 
+		<li IfModActive="Veltaris.Pyrophobia">1.5/Mods/Experimental</li>
+		<li IfModNotActive="Veltaris.Mechcrate">1.5/Mods/NoMechcrate</li> -->
+	</v1.5>
+	<v1.6>
+		<li>/</li>
+		<li>1.6</li>
+		<li IfModActive="Veltaris.Mechtech">1.6/Mods/Mechtech</li>
+		<li IfModActive="Veltaris.Jade">1.6/Mods/Jade</li>
+		<li>CentredModSettings</li><!-- loaded last for patches -->
+	</v1.6>
+</loadFolders>

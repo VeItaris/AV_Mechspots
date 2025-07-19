@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<Patch>
+
+	<!-- Mech work station -->
+	<Operation Class="AV_Mechspots.PatchOperation_ModSettings_CenteredSpots">
+		<match Class="PatchOperationConditional">
+			<xpath>/Defs/ThingDef[defName="AV_Mechworkstation"]/graphicData/texPath</xpath>
+			<match Class="PatchOperationReplace">
+				<xpath>/Defs/ThingDef[defName="AV_Mechworkstation"]/graphicData/texPath</xpath>
+				<value>
+					<texPath>Things/Building/CenteredMechSockets/AV_MechWorkSocket</texPath>
+				</value>	
+			</match>
+		</match>
+	</Operation>
+	
+	<Operation Class="AV_Mechspots.PatchOperation_ModSettings_CenteredSpots">
+		<match Class="PatchOperationConditional">
+			<xpath>/Defs/ThingDef[defName="AV_Mechworkstation"]/graphicData/drawOffset</xpath>
+			<match Class="PatchOperationReplace">
+				<xpath>/Defs/ThingDef[defName="AV_Mechworkstation"]/graphicData/drawOffset</xpath>
+				<value>
+					<drawOffset>(0,0,0.1)</drawOffset>
+				</value>	
+			</match>
+		</match>
+	</Operation>
+		
+
+	<!-- Mech charging station -->
+	<Operation Class="AV_Mechspots.PatchOperation_ModSettings_CenteredSpots">
+		<match Class="PatchOperationConditional">
+			<xpath>/Defs/ThingDef[defName="AV_Mechchargingstation"]/graphicData/texPath</xpath>
+			<match Class="PatchOperationReplace">
+				<xpath>/Defs/ThingDef[defName="AV_Mechchargingstation"]/graphicData/texPath</xpath>
+				<value>
+					<texPath>Things/Building/CenteredMechSockets/AV_MechChargingSocket</texPath>
+				</value>	
+			</match>
+		</match>
+	</Operation>
+	
+	<Operation Class="AV_Mechspots.PatchOperation_ModSettings_CenteredSpots">
+		<match Class="PatchOperationConditional">
+			<xpath>/Defs/ThingDef[defName="AV_Mechchargingstation"]/graphicData/drawOffset</xpath>
+			<match Class="PatchOperationReplace">
+				<xpath>/Defs/ThingDef[defName="AV_Mechchargingstation"]/graphicData/drawOffset</xpath>
+				<value>
+					<drawOffset>(0,0,0.1)</drawOffset>
+				</value>	
+			</match>
+		</match>
+	</Operation>
+	
+	
+	<!-- Mech guard station -->
+	<Operation Class="AV_Mechspots.PatchOperation_ModSettings_CenteredSpots">
+		<match Class="PatchOperationConditional">
+			<xpath>/Defs/ThingDef[defName="AV_Mechguardstation"]/graphicData/texPath</xpath>
+			<match Class="PatchOperationReplace">
+				<xpath>/Defs/ThingDef[defName="AV_Mechguardstation"]/graphicData/texPath</xpath>
+				<value>
+					<texPath>Things/Building/CenteredMechSockets/AV_MechGuardingSocket</texPath>
+				</value>	
+			</match>
+		</match>
+	</Operation>	
+
+	<Operation Class="AV_Mechspots.PatchOperation_ModSettings_CenteredSpots">
+		<match Class="PatchOperationConditional">
+			<xpath>/Defs/ThingDef[defName="AV_Mechguardstation"]/graphicData/drawOffset</xpath>
+			<match Class="PatchOperationReplace">
+				<xpath>/Defs/ThingDef[defName="AV_Mechguardstation"]/graphicData/drawOffset</xpath>
+				<value>
+					<drawOffset>(0,0,0.1)</drawOffset>
+				</value>	
+			</match>
+		</match>
+	</Operation>
+	
+	
+	<!-- Mech guard repeater -->
+	<Operation Class="AV_Mechspots.PatchOperation_ModSettings_CenteredSpots">
+		<match Class="PatchOperationConditional">
+			<xpath>/Defs/ThingDef[defName="AV_MechguardingRepeater"]/graphicData/drawOffset</xpath>
+			<match Class="PatchOperationReplace">
+				<xpath>/Defs/ThingDef[defName="AV_MechguardingRepeater"]/graphicData/drawOffset</xpath>
+				<value>
+					<drawOffset>(0,0,0.1)</drawOffset>
+				</value>	
+			</match>
+		</match>
+	</Operation>
+	
+
+	<!-- entrenched Mech guard repeater -->
+	<Operation Class="AV_Mechspots.PatchOperation_ModSettings_CenteredSpots">
+		<match Class="PatchOperationConditional">
+			<xpath>/Defs/ThingDef[defName="AV_EntrenchedSpot"]/graphicData/drawOffset</xpath>
+			<match Class="PatchOperationReplace">
+				<xpath>/Defs/ThingDef[defName="AV_EntrenchedSpot"]/graphicData/drawOffset</xpath>
+				<value>
+					<drawOffset>(0,0,0.1)</drawOffset>
+				</value>	
+			</match>
+		</match>
+	</Operation>
+
+	<!-- charged stone --> 
+	<Operation Class="AV_Mechspots.PatchOperation_ModSettings_CenteredSpots">
+		<match Class="PatchOperationConditional">
+			<xpath>/Defs/ThingDef[defName="AV_ChargedStone"]/graphicData/texPath</xpath>
+			<match Class="PatchOperationReplace">
+				<xpath>/Defs/ThingDef[defName="AV_ChargedStone"]/graphicData/texPath</xpath>
+				<value>
+					<texPath>Things/Building/CenteredMechSockets/AV_PulsingPlate</texPath>
+				</value>	
+			</match>
+		</match>
+	</Operation>
+	
+
+
+
+</Patch>

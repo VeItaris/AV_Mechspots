@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+		<!-- AV_Machanoid_Sockets -->	
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/ResearchProjectDef[defName="AV_Machanoid_Sockets"]</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs</xpath>
+			<value>
+			
+	<ResearchProjectDef>
+		<defName>AV_Machanoid_Sockets</defName>
+		<label>mechanoid sockets</label>
+		<tab>AV_Research</tab>
+		<techLevel>Spacer</techLevel>
+		<description>Use basic subcores to build mechanoid stations.</description>
+		<baseCost>800</baseCost>
+		<prerequisites>
+			<li>BasicMechtech</li>
+		</prerequisites>
+		<!-- <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding> -->
+		<requiredResearchFacilities>
+			<!-- <li>MultiAnalyzer</li> -->
+		</requiredResearchFacilities>
+		<researchViewX>2</researchViewX>
+		<researchViewY>1.0</researchViewY>
+		<generalRules>
+			<rulesStrings>
+				<li>subject->mechanoid sockets</li>
+				<li>subject_story->visited a mechanoid driven glitterworld</li>
+				<li>subject_gerund->worked in a glitterworld research facility to improve living standards</li>
+				<li>subject_story->experimented with mechanoid tech</li>
+				<li>subject_gerund->socketing mechanoids</li>
+			</rulesStrings>
+		</generalRules>
+	</ResearchProjectDef>
+
+			</value>
+		</nomatch>
+	</Operation>
+
+		<!-- AV_Pulse_Charger -->		
+	<Operation Class="PatchOperationConditional">
+		<xpath>Defs/ResearchProjectDef[defName="AV_Pulse_Charger"]</xpath>
+		<nomatch Class="PatchOperationAdd">
+			<xpath>Defs</xpath>
+			<value>
+			
+	<ResearchProjectDef>
+		<defName>AV_Pulse_Charger</defName>
+		<label>pulse charger</label>
+		<tab>AV_Research</tab>
+		<techLevel>Spacer</techLevel>
+		<description>Charge mechanoids with regular pulses of electrical energy. Although this special process is not as fast as conventional charging, it does not produce any toxic waste.</description>
+		<baseCost>800</baseCost>
+		<prerequisites>
+			<li>AV_Machanoid_Sockets</li>
+			<li MayRequire="Veltaris.Jade">AV_PulsingCells</li>
+		</prerequisites>
+			<requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+		<requiredResearchFacilities>
+			<!-- <li>MultiAnalyzer</li> -->
+		</requiredResearchFacilities>
+		<researchViewX>3</researchViewX>
+		<researchViewY>1.0</researchViewY>
+		<generalRules>
+			<rulesStrings>
+				<li>subject->pulse charger</li>
+				<li>subject->mechanoid cells</li>
+				<li>subject_story->visited a mechanoid driven glitterworld</li>
+				<li>subject_gerund->worked in a glitterworld research facility to improve living standards</li>
+				<li>subject_story->experimented with mechanoid tech</li>
+				<li>subject_gerund->socketing mechanoids</li>
+			</rulesStrings>
+		</generalRules>
+	</ResearchProjectDef>
+
+			</value>
+		</nomatch>
+	</Operation>
+		
+</Patch>

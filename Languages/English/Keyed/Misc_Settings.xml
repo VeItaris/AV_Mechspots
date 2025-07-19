@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+         
+    <!-- buttons -->
+	<AV_SettingsButtonLabel_LogMechSpot>log mechs for spot</AV_SettingsButtonLabel_LogMechSpot>
+		
+	<!-- checkboxes -->
+    <AV_SettingsBoxLabel_AssignMechOverlay>show assigned overlay for mechanoid spots</AV_SettingsBoxLabel_AssignMechOverlay>
+	<AV_SettingsBoxDesc_AssignMechOverlay>shows the name of the assigned mech on their mech spots.</AV_SettingsBoxDesc_AssignMechOverlay>
+	
+    <AV_SettingsBoxLabel_UnassignMechOverlay>show unassigned overlay for mechanoid spots</AV_SettingsBoxLabel_UnassignMechOverlay>
+	<AV_SettingsBoxDesc_UnassignMechOverlay>shows the unassigned label on unassigned mech spots.</AV_SettingsBoxDesc_UnassignMechOverlay>
+
+    <AV_SettingsBoxLabel_ColorAssignMechOverlay>allow colored assignment labels for dead mechs</AV_SettingsBoxLabel_ColorAssignMechOverlay>
+	<AV_SettingsBoxDesc_ColorAssignMechOverlay>yellow = mech is dead\nred = mech is destroyed and will disassign from the spot after loading </AV_SettingsBoxDesc_ColorAssignMechOverlay>
+
+    <AV_SettingsBoxLabel_ColorFromFramework>use color overlay in mechanitor color</AV_SettingsBoxLabel_ColorFromFramework>
+	<AV_SettingsBoxDesc_ColorFromFramework>colored mechlink range needs to be activated in [AV] Core Framework settings</AV_SettingsBoxDesc_ColorFromFramework>
+	<AV_SettingsBoxReason_ColorFromFramework>[AV] Core Framework settings</AV_SettingsBoxReason_ColorFromFramework>
+
+    <AV_SettingsBoxLabel_PsychicDisturber>framework setting: Use psychic disturber placeworker for sockets and bandnodes</AV_SettingsBoxLabel_PsychicDisturber>
+	<AV_SettingsBoxDesc_PsychicDisturber>might look weird when unchecked and connected with normal power conduits. As a framework setting this might effect other [AV] mods.</AV_SettingsBoxDesc_PsychicDisturber>
+
+    <AV_SettingsBoxLabel_CenteredSpots>center spots on the tiles (requires a restart)</AV_SettingsBoxLabel_CenteredSpots>
+	<AV_SettingsBoxDesc_CenteredSpots>check this if you don't like the offset of the spots towards the bottom</AV_SettingsBoxDesc_CenteredSpots>
+
+    <AV_SettingsBoxLabel_SolarFlare>allow usage of spots when unpowered</AV_SettingsBoxLabel_SolarFlare>
+    <AV_SettingsBoxDesc_SolarFlare>unchecked: \nMechs will stop their task when the spot is unpowered</AV_SettingsBoxDesc_SolarFlare>
+
+
+    <AV_SettingsBoxLabel_DefaultDormantRecharge>default spot setting: Allow mechs to dormant recharge on spots</AV_SettingsBoxLabel_DefaultDormantRecharge>
+	<AV_SettingsBoxDesc_DefaultDormantRecharge>newly build spots will use this as default. Does not change already build spots.</AV_SettingsBoxDesc_DefaultDormantRecharge>
+	
+    <AV_SettingsBoxLabel_ChargingSocketProducesWaste>allow production of toxic waste</AV_SettingsBoxLabel_ChargingSocketProducesWaste>
+	<AV_SettingsBoxDesc_ChargingSocketProducesWaste>check to force charging sockets to produce the same amount of toxic waste as biotechs recharger. Toxic waste gets dropped directly on the floor when the internal storage is full. Uncheck for no waste production.</AV_SettingsBoxDesc_ChargingSocketProducesWaste>
+
+    <AV_SettingsBoxLabel_Mechspots_DevLogging>devmode: Show devtools and debug logging</AV_SettingsBoxLabel_Mechspots_DevLogging>
+
+
+	<!-- slider -->
+	<AV_Slider_DefaultCharger>default charging socket</AV_Slider_DefaultCharger>
+
+	<AV_Slider_ChargingSocketEfficiency>charging socket efficiency</AV_Slider_ChargingSocketEfficiency>
+	
+	<AV_SliderLabel_ChargingSocketSpace>charging socket waste storage space</AV_SliderLabel_ChargingSocketSpace>
+	<AV_SliderDesc_ChargingSocketSpace>production of waste needs to be turned on, otherwise this setting does nothing.</AV_SliderDesc_ChargingSocketSpace>
+
+	<!-- info string -->
+	
+	<AV_InfoString_OutOf>out of</AV_InfoString_OutOf>
+	<AV_InfoString_usablemechs>mechs a total of</AV_InfoString_usablemechs>
+	<AV_InfoString_unusablemechs>unusable mechs a total of</AV_InfoString_unusablemechs>
+	<AV_InfoString_usespots>can use mechanoid spots</AV_InfoString_usespots>
+	<AV_InfoString_limitedpower>are powered by limited power cells</AV_InfoString_limitedpower>
+	<AV_InfoString_limitedpower_neverwork>(mechs with limited power cells will never work)</AV_InfoString_limitedpower_neverwork>
+
+	<!-- labels -->
+	
+	<AV_Settingslabel_AllSpots>all spots</AV_Settingslabel_AllSpots>
+	<AV_Settingslabel_ChargingSocket>charging socket</AV_Settingslabel_ChargingSocket>
+
+
+
+
+
+</LanguageData>

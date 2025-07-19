@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+	<!-- for translators: -->
+	<!-- this mod also uses some translationkeys from [AV]Framework -->
+
+	<!-- Mech Spots	/ CompAssignableToMech -->
+    <AV_DescGizmo_AssignableMechTypes>allowed mech types</AV_DescGizmo_AssignableMechTypes>
+
+    <AV_Gizmo_AllowedMechs_OnlyWorkMechs>only work mechs</AV_Gizmo_AllowedMechs_OnlyWorkMechs>
+    <AV_Gizmo_AllowedMechs_OnlyCombatMechs>only combat mechs</AV_Gizmo_AllowedMechs_OnlyCombatMechs>
+    <AV_Gizmo_AllowedMechs_AllMechsAllowed>all mechs allowed</AV_Gizmo_AllowedMechs_AllMechsAllowed>
+    <AV_Gizmo_AllowedMechs_AllMechsDisallowed>all disallowed</AV_Gizmo_AllowedMechs_AllMechsDisallowed>
+	
+    <AV_Gizmo_ChooseMechType_AllMechtypes>all mechtypes</AV_Gizmo_ChooseMechType_AllMechtypes>    
+	<AV_Gizmo_ChooseMechType_OnlyWorkMechs>only work mechs</AV_Gizmo_ChooseMechType_OnlyWorkMechs>
+    <AV_Gizmo_ChooseMechType_OnlyCombatMechs>only combat mechs</AV_Gizmo_ChooseMechType_OnlyCombatMechs>
+    <AV_Gizmo_ChooseMechType_NoAssignment>no assignment</AV_Gizmo_ChooseMechType_NoAssignment>
+    <AV_GizmoDesc_Assignment>assign this spot to a specific mech</AV_GizmoDesc_Assignment>		
+    
+	<AV_DescGizmoLabel_Rotation>rotation</AV_DescGizmoLabel_Rotation>
+	<AV_DescGizmo_Rotation>choose the standard rotation of the mech ontop</AV_DescGizmo_Rotation>	
+	
+	<AV_Gizmo_Rotation_Any>Any, chosen by mech</AV_Gizmo_Rotation_Any>
+	<AV_Gizmo_Rotation_Random>Look out / Random</AV_Gizmo_Rotation_Random>	
+	<AV_Gizmo_Rotation_North>Up / North</AV_Gizmo_Rotation_North>
+	<AV_Gizmo_Rotation_South>Down / South</AV_Gizmo_Rotation_South>	
+	<AV_Gizmo_Rotation_West>Left / West</AV_Gizmo_Rotation_West>
+	<AV_Gizmo_Rotation_East>Right / East</AV_Gizmo_Rotation_East>	
+		
+	
+    <AV_GizmoLabel_JumpToMech>where's my mech</AV_GizmoLabel_JumpToMech>
+    <AV_GizmoDesc_JumpToMech>centers the camera at the assigned mech, provided it still exists.</AV_GizmoDesc_JumpToMech>
+
+	<AV_GizmoDesc_FightToggle>checked: \nIgnore downed enemies in sight and stay on the spot. \nUnchecked: \nVanilla beheivior when enemies are detected on the map (downed or not), mechs might start patrols.</AV_GizmoDesc_FightToggle>
+	<AV_GizmoLabel_FightToggle>ignore downed</AV_GizmoLabel_FightToggle>	
+
+	<AV_GizmoDesc_RechargeToggle>checked: \nAssigned mechs can dormant recharge on this spot when no mech recharger is available (according to their recharge setting) \nUnchecked: \nAssigned mechs won't consider this as a recharge spot.</AV_GizmoDesc_RechargeToggle>
+	<AV_GizmoLabel_RechargeToggle>use as recharger</AV_GizmoLabel_RechargeToggle>	
+
+
+
+	<!-- Mech Spots	/ Comp_ChargeSpot -->
+    <AV_ChargeSpot_NextChargeIn>next charge in</AV_ChargeSpot_NextChargeIn>
+	<AV_ChargeSpot_NextChargeShutDown>stoped by event</AV_ChargeSpot_NextChargeShutDown>
+	<AV_ChargeSpot_NextChargeUnpowered>stoped by no power</AV_ChargeSpot_NextChargeUnpowered>
+	<AV_ChargeSpot_NextChargeUnused>not in use</AV_ChargeSpot_NextChargeUnused>
+    <AV_ChargeSpot_EnergyCharged>per charge</AV_ChargeSpot_EnergyCharged>
+	<AV_ChargeSpot_EnergyPerDay>per day</AV_ChargeSpot_EnergyPerDay>
+
+    <AV_Gizmo_Powerlvl>pulse frequency</AV_Gizmo_Powerlvl>
+	<AV_Gizmo_Powerlvl_low>low</AV_Gizmo_Powerlvl_low>
+	<AV_Gizmo_Powerlvl_medium>medium</AV_Gizmo_Powerlvl_medium>
+	<AV_Gizmo_Powerlvl_high>high</AV_Gizmo_Powerlvl_high>
+	<AV_Gizmo_Powerlvl_extreme>extreme</AV_Gizmo_Powerlvl_extreme>	
+	<AV_GizmoDesc_Powerchange>change power consumption and pulsing frequency</AV_GizmoDesc_Powerchange>	
+	
+	<AV_ChargeSpot_Waste>waste</AV_ChargeSpot_Waste>
+	
+	
+	<!-- power -->
+    <AV_DescPowerNeeded>power needed</AV_DescPowerNeeded>
+	
+	<!-- where is my station -->
+    <AV_DescSpawnerSpotLabel>where's my workstation</AV_DescSpawnerSpotLabel>
+    <AV_DescSpawnerJumpToSpot>centers your camera on the selected mech's socket.</AV_DescSpawnerJumpToSpot>	
+
+	<!-- copy/paste -->
+	<AV_DescGizmo_Copy>Copy this spot's settings to the clipboard so you can paste them onto another spot.</AV_DescGizmo_Copy>
+	<AV_DescGizmo_Paste>Overwrite this spot's settings with those previously copied to the clipboard.</AV_DescGizmo_Paste>
+	<AV_Message_Copy_NoAssignmentAllowed>Copied a setting which removes assigned mechs!</AV_Message_Copy_NoAssignmentAllowed>
+
+
+	<!-- Jobgiver stay at mech spot -->
+    <AV_DescChargingAtSpot>charging at spot.</AV_DescChargingAtSpot>
+    <AV_DescGuardingAtSpot>guarding at spot.</AV_DescGuardingAtSpot>	
+    <AV_DescProducingAtSpot>producing at spot.</AV_DescProducingAtSpot>
+    <AV_DescStayingAtSpot>staying at spot.</AV_DescStayingAtSpot>	
+		
+		
+	<!-- harmony patches -->
+
+	<AV_Float_ForceConnect_NoMechanitor>not mechanitor</AV_Float_ForceConnect_NoMechanitor>
+	<AV_Float_ForceConnect_Bugfix>DEV: FORCE control {0}</AV_Float_ForceConnect_Bugfix>
+	
+	<AV_Float_CarryToSpot_NotPossible>cannot carry {0} near spot: {0} has no spot.</AV_Float_CarryToSpot_NotPossible>
+	<AV_Float_CarryToSpot_NotPossible_2>cannot carry {0} near spot</AV_Float_CarryToSpot_NotPossible_2>
+	<AV_Float_CarryToSpot_Possible>carry {0} near its spot</AV_Float_CarryToSpot_Possible>
+	
+	<!-- assignment menu -->	
+	<AV_MechAssignment_Filtering_Any>show both work and combat mechs</AV_MechAssignment_Filtering_Any>
+	<AV_MechAssignment_Filtering_Work>show only work mechs</AV_MechAssignment_Filtering_Work>	
+	<AV_MechAssignment_Filtering_Combat>show only combat mechs</AV_MechAssignment_Filtering_Combat>	
+	<AV_MechAssignment_Sorting_Assignment>sort mechs to show mechs without assignment first</AV_MechAssignment_Sorting_Assignment>
+	<AV_MechAssignment_Sorting_Name>sort mechs by name</AV_MechAssignment_Sorting_Name>	
+	<AV_MechAssignment_number>mechs shown</AV_MechAssignment_number>	
+	<AV_Any>any</AV_Any>
+	<AV_Destroyed>destroyed</AV_Destroyed>
+	
+	
+</LanguageData>

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+ 
+	<!-- fluoid station -->
+	<ThingDef ParentName="AV_MechStation_Base">
+		<defName>AV_Fluoidstation</defName>
+		<label>fluoid socket</label>
+		<description>A mechanoid work station especially designed for fluoids.\nIt connects to an assigned mechanoid on top and is supporting their fluid reprocessing while taking of some load from their power generator, resulting in less toxic waste over time and faster neurofoam production.\nIt interferes with other mechanoid workstations in the vicinity and requires a direct connection to a power conduit.\n\n&lt;color=#f8f32b&gt;Mod settings note:&lt;/color&gt;\nThe interfering part only refers to the inability to place them next to each other. This can be changed in the mod settings.</description>
+		<uiOrder>2005</uiOrder>
+		<graphicData>
+			<texPath>Things/Building/MechSockets/AV_MechFluoidSocket</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawRotated>false</drawRotated>
+			<damageData>
+				<rect>(0.3,0.62,0.5,0.68)</rect>
+			</damageData>
+			<drawOffset>(0,0,-0.3)</drawOffset> <!-- ?,?,y   minus = down -->
+			<drawSize>1,2</drawSize>
+		</graphicData>
+		<size>(1,1)</size>
+		<uiIconScale>1.5</uiIconScale>
+		<statBases>
+			<MaxHitPoints>100</MaxHitPoints>
+			<WorkToBuild>1500</WorkToBuild>
+			<Mass>5</Mass>
+			<Flammability>0.5</Flammability>
+			<Beauty>0</Beauty>
+			<Comfort>0.40</Comfort>
+		</statBases>
+		<costList>
+			<Steel>50</Steel>
+			<SubcoreBasic>1</SubcoreBasic>
+		</costList>
+		<researchPrerequisites>
+			<li>AV_Machanoid_Sockets</li>
+		</researchPrerequisites>
+		<comps>
+			<li Class="CompProperties_Power">
+			    <compClass>CompPowerTrader</compClass>				
+				<transmitsPower>true</transmitsPower>
+				<basePowerConsumption>150</basePowerConsumption>	
+				<!-- <idlePowerDraw>150</idlePowerDraw> -->			<!-- always considered idle from game -->	
+				<shortCircuitInRain>true</shortCircuitInRain>
+			</li>
+			<li Class="AV_Mechspots.CompProperties_AssignableToMech">				
+				<compClass>AV_Mechspots.CompAssignableToMech</compClass>
+				<OnlySpecificPawnKind>AV_Mech_Fluoid</OnlySpecificPawnKind>
+				<AllowCombatMechs>true</AllowCombatMechs>
+				<AllowNonCombatMechs>true</AllowNonCombatMechs>
+				<ShowProgressbar>true</ShowProgressbar>
+			</li>
+			<li Class="AV_Mechspots.CompProperties_GiveHediffAbove">
+			    <compClass>AV_Mechspots.Comp_GiveHediffAbove</compClass>				
+				<onlyassigned>true</onlyassigned>
+				<onlyTargetMechs>true</onlyTargetMechs>
+				<hediff>AV_FluoidBoost</hediff>
+				<drawLine>false</drawLine>				
+			</li>
+			<!-- 
+			<li Class="CompProperties_Glower">
+				<glowRadius>1.9</glowRadius>
+				<glowColor>(78, 226, 229, 0)</glowColor>
+			</li> -->				
+			<li Class="CompProperties_Flickable" />
+			<li Class="CompProperties_Breakdownable"/>	
+		</comps>
+
+	</ThingDef>
+
+ 	<!-- mechanoid fluoid boost --> 
+	<HediffDef>
+		<defName>AV_FluoidBoost</defName>
+		<label>production mode</label>
+		<description>This mechanoid's performance has been optimised by a fluoid socket.</description>
+		<hediffClass>HediffWithComps</hediffClass>
+		<defaultLabelColor>(0.52, 1, 0.95)</defaultLabelColor>
+		<comps>
+			<li Class="HediffCompProperties_Disappears">
+				<disappearsAfterTicks>30</disappearsAfterTicks>
+				<showRemainingTime>false</showRemainingTime>
+			</li>
+			<li Class="HediffCompProperties_DisappearsOnDeath"/>
+		</comps>
+		<stages>
+			<li>
+				<capMods>
+					<li>
+						<capacity>BloodFiltration</capacity>
+						<offset>0.5</offset>
+					</li>
+				</capMods>
+				<statFactors>
+					<MechEnergyUsageFactor>0.5</MechEnergyUsageFactor>
+				</statFactors>
+			</li>
+		</stages>
+		<isBad>false</isBad>
+	</HediffDef>
+
+
+</Defs>

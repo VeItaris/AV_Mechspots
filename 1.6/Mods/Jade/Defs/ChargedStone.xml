@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+		<!-- charged stone --> 		
+	<ThingDef ParentName="AV_MechStation_Base">
+		<defName>AV_ChargedStone</defName>
+		<label>charged stone</label>
+		<description>A small, electrically charged stone, carefully polished and carved to create a useable energyflow.\nIts weak pulsing signal is enough to work as a marked spot for a mechanoid.</description>
+		<graphicData>
+			<texPath>Things/Building/PulsingStones/AV_PulsingPlate</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<color>(85,118,69)</color>
+			<drawRotated>false</drawRotated>
+			<drawSize>1,1</drawSize>
+		</graphicData>
+		<size>(1,1)</size>
+		<uiIconScale>1.0</uiIconScale>		
+		<uiIconPath>Things/Building/PulsingStones/AV_PulsingPlateIcon</uiIconPath>
+		<statBases>
+			<MaxHitPoints>30</MaxHitPoints>
+			<WorkToBuild>5000</WorkToBuild>
+			<Mass>1</Mass>
+			<Flammability>0.5</Flammability>
+			<Beauty>5</Beauty>
+			<Comfort>0.0</Comfort>
+		</statBases>
+		<fillPercent>0.1</fillPercent>
+		<building>
+			<artificialForMeditationPurposes>false</artificialForMeditationPurposes>
+		</building>
+		<costList>
+			<Jade>15</Jade>
+		</costList>
+		<tradeTags Inherit='False'>	
+			<li>AV_Mechtech_Tribal</li>
+			<li>AV_Mechtech</li>
+		</tradeTags>		
+		<researchPrerequisites>
+			<li>AV_PulsingStones</li>
+		</researchPrerequisites>	
+		<comps Inherit='False'>	
+			<li Class="AV_MechSpots.CompProperties_AssignableToMech">		
+				<compClass>AV_MechSpots.CompAssignableToMech</compClass>
+				<ForceShowAll>false</ForceShowAll>
+				<AllowCombatMechs>true</AllowCombatMechs>
+				<AllowNonCombatMechs>true</AllowNonCombatMechs>
+			</li> 
+		</comps>
+		<leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
+		<placeWorkers Inherit='False'>
+			<!-- nothing --> 
+		</placeWorkers>		
+		<modExtensions Inherit='False'>
+            <!-- nothing --> 
+        </modExtensions>		
+	</ThingDef>
+
+
+
+
+
+
+</Defs>

@@ -1,0 +1,381 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<Patch>
+
+	<!-- Vanilla Thinktrees -->
+	
+	
+	<!-- Add Worker Mech Job ConnectToSocket  (before idle JobGiver_WanderColony)  -->
+
+	<Operation Class="PatchOperationConditional">
+		<xpath>/Defs/ThinkTreeDef[defName="Mechanoid"]/thinkRoot/subNodes/li[@Class="ThinkNode_ConditionalPlayerControlledMech"]/subNodes/li[@Class="ThinkNode_Tagger"]/subNodes</xpath>
+		<match Class="PatchOperationAdd">
+			<xpath>/Defs/ThinkTreeDef[defName="Mechanoid"]/thinkRoot/subNodes/li[@Class="ThinkNode_ConditionalPlayerControlledMech"]/subNodes/li[@Class="ThinkNode_Tagger"]/subNodes</xpath>
+			<order>Prepend</order>
+			<value>
+				<li Class="AV_Mechspots.JobGiver_StayAtMechSpot"/>
+			</value>
+		</match>
+	</Operation>
+		
+	<!-- Add Combat Mech ConnectToSocket (before Patrolling JobGiver_WanderColony) -->
+
+	<Operation Class="PatchOperationConditional">
+		<xpath>/Defs/ThinkTreeDef[defName="Mechanoid"]/thinkRoot/subNodes/li[@Class="ThinkNode_ConditionalPlayerControlledMech"]/subNodes/li[@Class="ThinkNode_ConditionalNotFormingCaravan"]/subNodes/li[@Class="ThinkNode_ConditionalWorkMode"]/subNodes/li[@Class="ThinkNode_ConditionalWorkMech"]/subNodes/li[@Class="JobGiver_AIFightEnemies"]</xpath>
+		<match Class="PatchOperationInsert">
+			<xpath>/Defs/ThinkTreeDef[defName="Mechanoid"]/thinkRoot/subNodes/li[@Class="ThinkNode_ConditionalPlayerControlledMech"]/subNodes/li[@Class="ThinkNode_ConditionalNotFormingCaravan"]/subNodes/li[@Class="ThinkNode_ConditionalWorkMode"]/subNodes/li[@Class="ThinkNode_ConditionalWorkMech"]/subNodes/li[@Class="JobGiver_AIFightEnemies"]</xpath>
+			<order>Append</order>
+			<value>
+				<li Class="AV_Mechspots.JobGiver_StayAtMechSpot"/>
+			</value>
+		</match>
+	</Operation>		
+	
+	<!-- Add Modextension IsMechspotCompatible -->
+
+	<Operation Class="PatchOperationConditional">
+		<xpath>/Defs/ThinkTreeDef[defName="Mechanoid"]</xpath>
+		<match Class="PatchOperationConditional">
+			<xpath>/Defs/ThinkTreeDef[defName="Mechanoid"]/modExtensions</xpath>
+			<nomatch Class="PatchOperationAdd">
+				<xpath>/Defs/ThinkTreeDef[defName="Mechanoid"]</xpath>
+				<order>Prepend</order>
+				<value>
+					<modExtensions>
+						<li Class="AV_Mechspots.IsMechspotCompatibleThinkTree">
+							<IsMechspotCompatible>true</IsMechspotCompatible>
+						</li>
+					</modExtensions>
+				</value>	
+			</nomatch>
+			<match Class="PatchOperationAdd">
+				<xpath>/Defs/ThinkTreeDef[defName="Mechanoid"]/modExtensions</xpath>
+				<order>Prepend</order>
+				<value>
+					<li Class="AV_Mechspots.IsMechspotCompatibleThinkTree">
+						<IsMechspotCompatible>true</IsMechspotCompatible>
+					</li>
+				</value>	
+			</match>
+		</match>
+	</Operation>
+
+
+
+
+
+
+
+	<!-- Dead Mans Switch Thinktrees -->
+	
+	<!-- DMS_Mechanoid -->
+
+	<!-- Add Worker Mech Job ConnectToSocket (before idle JobGiver_WanderColony) -->
+
+	<Operation Class="PatchOperationConditional">
+		<xpath>/Defs/ThinkTreeDef[defName="DMS_Mechanoid"]/thinkRoot/subNodes/li[@Class="ThinkNode_ConditionalPlayerControlledMech"]/subNodes/li[@Class="ThinkNode_Tagger"]/subNodes</xpath>
+		<match Class="PatchOperationAdd">
+			<xpath>/Defs/ThinkTreeDef[defName="DMS_Mechanoid"]/thinkRoot/subNodes/li[@Class="ThinkNode_ConditionalPlayerControlledMech"]/subNodes/li[@Class="ThinkNode_Tagger"]/subNodes</xpath>
+			<order>Prepend</order>
+			<value>
+				<li Class="AV_Mechspots.JobGiver_StayAtMechSpot"/>
+			</value>
+		</match>
+	</Operation>
+		
+	<!-- Add Combat Mech ConnectToSocket (before Patrolling JobGiver_WanderColony) -->
+
+	<Operation Class="PatchOperationConditional">
+		<xpath>/Defs/ThinkTreeDef[defName="DMS_Mechanoid"]/thinkRoot/subNodes/li[@Class="ThinkNode_ConditionalPlayerControlledMech"]/subNodes/li[@Class="ThinkNode_ConditionalNotFormingCaravan"]/subNodes/li[@Class="ThinkNode_ConditionalWorkMode"]/subNodes/li[@Class="ThinkNode_ConditionalWorkMech"]/subNodes/li[@Class="JobGiver_AIFightEnemies"]</xpath>
+		<match Class="PatchOperationInsert">
+			<xpath>/Defs/ThinkTreeDef[defName="DMS_Mechanoid"]/thinkRoot/subNodes/li[@Class="ThinkNode_ConditionalPlayerControlledMech"]/subNodes/li[@Class="ThinkNode_ConditionalNotFormingCaravan"]/subNodes/li[@Class="ThinkNode_ConditionalWorkMode"]/subNodes/li[@Class="ThinkNode_ConditionalWorkMech"]/subNodes/li[@Class="JobGiver_AIFightEnemies"]</xpath>
+			<order>Append</order>
+			<value>
+				<li Class="AV_Mechspots.JobGiver_StayAtMechSpot"/>
+			</value>
+		</match>
+	</Operation>		
+	
+	<!-- Add Modextension IsMechspotCompatible -->
+
+	<Operation Class="PatchOperationConditional">
+		<xpath>/Defs/ThinkTreeDef[defName="DMS_Mechanoid"]</xpath>
+		<match Class="PatchOperationConditional">
+			<xpath>/Defs/ThinkTreeDef[defName="DMS_Mechanoid"]/modExtensions</xpath>
+			<nomatch Class="PatchOperationAdd">
+				<xpath>/Defs/ThinkTreeDef[defName="DMS_Mechanoid"]</xpath>
+				<order>Prepend</order>
+				<value>
+					<modExtensions>
+						<li Class="AV_Mechspots.IsMechspotCompatibleThinkTree">
+							<IsMechspotCompatible>true</IsMechspotCompatible>
+						</li>
+					</modExtensions>
+				</value>	
+			</nomatch>
+			<match Class="PatchOperationAdd">
+				<xpath>/Defs/ThinkTreeDef[defName="DMS_Mechanoid"]/modExtensions</xpath>
+				<order>Prepend</order>
+				<value>
+					<li Class="AV_Mechspots.IsMechspotCompatibleThinkTree">
+						<IsMechspotCompatible>true</IsMechspotCompatible>
+					</li>
+				</value>	
+			</match>
+		</match>
+	</Operation>
+
+
+
+
+	<!-- DMS_HumanlikeMech -->
+
+	<!-- Add Worker Mech Job ConnectToSocket (before idle JobGiver_WanderColony) -->
+
+	<Operation Class="PatchOperationConditional">
+		<xpath>/Defs/ThinkTreeDef[defName="DMS_HumanlikeMech"]/thinkRoot/subNodes/li[@Class="ThinkNode_ConditionalPlayerControlledMech"]/subNodes/li[@Class="ThinkNode_Tagger"]/subNodes</xpath>
+		<match Class="PatchOperationAdd">
+			<xpath>/Defs/ThinkTreeDef[defName="DMS_HumanlikeMech"]/thinkRoot/subNodes/li[@Class="ThinkNode_ConditionalPlayerControlledMech"]/subNodes/li[@Class="ThinkNode_Tagger"]/subNodes</xpath>
+			<order>Prepend</order>
+			<value>
+				<li Class="AV_Mechspots.JobGiver_StayAtMechSpot"/>
+			</value>
+		</match>
+	</Operation>
+		
+	<!-- Add Combat Mech ConnectToSocket (before Patrolling JobGiver_WanderColony) -->
+
+	<Operation Class="PatchOperationConditional">
+		<xpath>/Defs/ThinkTreeDef[defName="DMS_HumanlikeMech"]/thinkRoot/subNodes/li[@Class="ThinkNode_ConditionalPlayerControlledMech"]/subNodes/li[@Class="ThinkNode_ConditionalNotFormingCaravan"]/subNodes/li[@Class="ThinkNode_ConditionalWorkMode"]/subNodes/li[@Class="ThinkNode_ConditionalWorkMech"]/subNodes/li[@Class="JobGiver_AIFightEnemies"]</xpath>
+		<match Class="PatchOperationInsert">
+			<xpath>/Defs/ThinkTreeDef[defName="DMS_HumanlikeMech"]/thinkRoot/subNodes/li[@Class="ThinkNode_ConditionalPlayerControlledMech"]/subNodes/li[@Class="ThinkNode_ConditionalNotFormingCaravan"]/subNodes/li[@Class="ThinkNode_ConditionalWorkMode"]/subNodes/li[@Class="ThinkNode_ConditionalWorkMech"]/subNodes/li[@Class="JobGiver_AIFightEnemies"]</xpath>
+			<order>Append</order>
+			<value>
+				<li Class="AV_Mechspots.JobGiver_StayAtMechSpot"/>
+			</value>
+		</match>
+	</Operation>		
+	
+	<!-- Add Modextension IsMechspotCompatible -->
+
+	<Operation Class="PatchOperationConditional">
+		<xpath>/Defs/ThinkTreeDef[defName="DMS_HumanlikeMech"]</xpath>
+		<match Class="PatchOperationConditional">
+			<xpath>/Defs/ThinkTreeDef[defName="DMS_HumanlikeMech"]/modExtensions</xpath>
+			<nomatch Class="PatchOperationAdd">
+				<xpath>/Defs/ThinkTreeDef[defName="DMS_HumanlikeMech"]</xpath>
+				<order>Prepend</order>
+				<value>
+					<modExtensions>
+						<li Class="AV_Mechspots.IsMechspotCompatibleThinkTree">
+							<IsMechspotCompatible>true</IsMechspotCompatible>
+						</li>
+					</modExtensions>
+				</value>	
+			</nomatch>
+			<match Class="PatchOperationAdd">
+				<xpath>/Defs/ThinkTreeDef[defName="DMS_HumanlikeMech"]/modExtensions</xpath>
+				<order>Prepend</order>
+				<value>
+					<li Class="AV_Mechspots.IsMechspotCompatibleThinkTree">
+						<IsMechspotCompatible>true</IsMechspotCompatible>
+					</li>
+				</value>	
+			</match>
+		</match>
+	</Operation>
+
+
+
+
+	<!-- Add Modextension IsMechspotCompatible -->
+
+	<Operation Class="PatchOperationConditional">
+		<xpath>/Defs/ThinkTreeDef[defName="DMS_Machine"]</xpath>
+		<match Class="PatchOperationConditional">
+			<xpath>/Defs/ThinkTreeDef[defName="DMS_Machine"]/modExtensions</xpath>
+			<nomatch Class="PatchOperationAdd">
+				<xpath>/Defs/ThinkTreeDef[defName="DMS_Machine"]</xpath>
+				<order>Prepend</order>
+				<value>
+					<modExtensions>
+						<li Class="AV_Mechspots.IsMechspotCompatibleThinkTree">
+							<IsMechspotCompatible>false</IsMechspotCompatible>
+						</li>
+					</modExtensions>
+				</value>	
+			</nomatch>
+			<match Class="PatchOperationAdd">
+				<xpath>/Defs/ThinkTreeDef[defName="DMS_Machine"]/modExtensions</xpath>
+				<order>Prepend</order>
+				<value>
+					<li Class="AV_Mechspots.IsMechspotCompatibleThinkTree">
+						<IsMechspotCompatible>false</IsMechspotCompatible>
+					</li>
+				</value>	
+			</match>
+		</match>
+	</Operation>
+
+
+
+
+
+	<!-- Vanilla expanded - drone mechs -->
+
+	<!-- VFE_Mechanoids_ViolentMachine -->
+
+	<!-- Add Modextension IsMechspotCompatible -->
+
+	<Operation Class="PatchOperationConditional">
+		<xpath>/Defs/ThinkTreeDef[defName="VFE_Mechanoids_ViolentMachine"]</xpath>
+		<match Class="PatchOperationConditional">
+			<xpath>/Defs/ThinkTreeDef[defName="VFE_Mechanoids_ViolentMachine"]/modExtensions</xpath>
+			<nomatch Class="PatchOperationAdd">
+				<xpath>/Defs/ThinkTreeDef[defName="VFE_Mechanoids_ViolentMachine"]</xpath>
+				<order>Prepend</order>
+				<value>
+					<modExtensions>
+						<li Class="AV_Mechspots.IsMechspotCompatibleThinkTree">
+							<IsMechspotCompatible>false</IsMechspotCompatible>
+						</li>
+					</modExtensions>
+				</value>	
+			</nomatch>
+			<match Class="PatchOperationAdd">
+				<xpath>/Defs/ThinkTreeDef[defName="VFE_Mechanoids_ViolentMachine"]/modExtensions</xpath>
+				<order>Prepend</order>
+				<value>
+					<li Class="AV_Mechspots.IsMechspotCompatibleThinkTree">
+						<IsMechspotCompatible>false</IsMechspotCompatible>
+					</li>
+				</value>	
+			</match>
+		</match>
+	</Operation>
+
+
+
+
+
+
+	<!-- Reinforced Mechanoids Thinktrees -->
+
+	<!-- RM_Mechanoid_Caretaker -->
+
+	<!-- Add Worker Mech Job ConnectToSocket (before idle JobGiver_WanderColony) -->
+
+	<Operation Class="PatchOperationConditional">
+		<xpath>/Defs/ThinkTreeDef[defName="RM_Mechanoid_Caretaker"]/thinkRoot/subNodes/li[@Class="ThinkNode_ConditionalPlayerControlledMech"]/subNodes/li[@Class="ThinkNode_Tagger"]/subNodes</xpath>
+		<match Class="PatchOperationAdd">
+			<xpath>/Defs/ThinkTreeDef[defName="RM_Mechanoid_Caretaker"]/thinkRoot/subNodes/li[@Class="ThinkNode_ConditionalPlayerControlledMech"]/subNodes/li[@Class="ThinkNode_Tagger"]/subNodes</xpath>
+			<order>Prepend</order>
+			<value>
+				<li Class="AV_Mechspots.JobGiver_StayAtMechSpot"/>
+			</value>
+		</match>
+	</Operation>
+		
+	<!-- Add Combat Mech ConnectToSocket (before Patrolling JobGiver_WanderColony) -->
+
+	<Operation Class="PatchOperationConditional">
+		<xpath>/Defs/ThinkTreeDef[defName="RM_Mechanoid_Caretaker"]/thinkRoot/subNodes/li[@Class="ThinkNode_ConditionalPlayerControlledMech"]/subNodes/li[@Class="ThinkNode_ConditionalNotFormingCaravan"]/subNodes/li[@Class="ThinkNode_ConditionalWorkMode"]/subNodes/li[@Class="ThinkNode_ConditionalWorkMech"]/subNodes/li[@Class="JobGiver_AIFightEnemies"]</xpath>
+		<match Class="PatchOperationInsert">
+			<xpath>/Defs/ThinkTreeDef[defName="RM_Mechanoid_Caretaker"]/thinkRoot/subNodes/li[@Class="ThinkNode_ConditionalPlayerControlledMech"]/subNodes/li[@Class="ThinkNode_ConditionalNotFormingCaravan"]/subNodes/li[@Class="ThinkNode_ConditionalWorkMode"]/subNodes/li[@Class="ThinkNode_ConditionalWorkMech"]/subNodes/li[@Class="JobGiver_AIFightEnemies"]</xpath>
+			<order>Append</order>
+			<value>
+				<li Class="AV_Mechspots.JobGiver_StayAtMechSpot"/>
+			</value>
+		</match>
+	</Operation>		
+	
+	<!-- Add Modextension IsMechspotCompatible -->
+
+	<Operation Class="PatchOperationConditional">
+		<xpath>/Defs/ThinkTreeDef[defName="RM_Mechanoid_Caretaker"]</xpath>
+		<match Class="PatchOperationConditional">
+			<xpath>/Defs/ThinkTreeDef[defName="RM_Mechanoid_Caretaker"]/modExtensions</xpath>
+			<nomatch Class="PatchOperationAdd">
+				<xpath>/Defs/ThinkTreeDef[defName="RM_Mechanoid_Caretaker"]</xpath>
+				<order>Prepend</order>
+				<value>
+					<modExtensions>
+						<li Class="AV_Mechspots.IsMechspotCompatibleThinkTree">
+							<IsMechspotCompatible>true</IsMechspotCompatible>
+						</li>
+					</modExtensions>
+				</value>	
+			</nomatch>
+			<match Class="PatchOperationAdd">
+				<xpath>/Defs/ThinkTreeDef[defName="RM_Mechanoid_Caretaker"]/modExtensions</xpath>
+				<order>Prepend</order>
+				<value>
+					<li Class="AV_Mechspots.IsMechspotCompatibleThinkTree">
+						<IsMechspotCompatible>true</IsMechspotCompatible>
+					</li>
+				</value>	
+			</match>
+		</match>
+	</Operation>
+
+
+
+	<!-- RM_Mechanoid_Sentinel -->
+
+	<!-- Add Worker Mech Job ConnectToSocket (before idle JobGiver_WanderColony) -->
+
+	<Operation Class="PatchOperationConditional">
+		<xpath>/Defs/ThinkTreeDef[defName="RM_Mechanoid_Sentinel"]/thinkRoot/subNodes/li[@Class="ThinkNode_ConditionalPlayerControlledMech"]/subNodes/li[@Class="ThinkNode_Tagger"]/subNodes</xpath>
+		<match Class="PatchOperationAdd">
+			<xpath>/Defs/ThinkTreeDef[defName="RM_Mechanoid_Sentinel"]/thinkRoot/subNodes/li[@Class="ThinkNode_ConditionalPlayerControlledMech"]/subNodes/li[@Class="ThinkNode_Tagger"]/subNodes</xpath>
+			<order>Prepend</order>
+			<value>
+				<li Class="AV_Mechspots.JobGiver_StayAtMechSpot"/>
+			</value>
+		</match>
+	</Operation>
+		
+	<!-- Add Combat Mech ConnectToSocket (before Patrolling JobGiver_WanderColony) -->
+
+	<Operation Class="PatchOperationConditional">
+		<xpath>/Defs/ThinkTreeDef[defName="RM_Mechanoid_Sentinel"]/thinkRoot/subNodes/li[@Class="ThinkNode_ConditionalPlayerControlledMech"]/subNodes/li[@Class="ThinkNode_ConditionalNotFormingCaravan"]/subNodes/li[@Class="ThinkNode_ConditionalWorkMode"]/subNodes/li[@Class="ThinkNode_ConditionalWorkMech"]/subNodes/li[@Class="JobGiver_AIFightEnemies"]</xpath>
+		<match Class="PatchOperationInsert">
+			<xpath>/Defs/ThinkTreeDef[defName="RM_Mechanoid_Sentinel"]/thinkRoot/subNodes/li[@Class="ThinkNode_ConditionalPlayerControlledMech"]/subNodes/li[@Class="ThinkNode_ConditionalNotFormingCaravan"]/subNodes/li[@Class="ThinkNode_ConditionalWorkMode"]/subNodes/li[@Class="ThinkNode_ConditionalWorkMech"]/subNodes/li[@Class="JobGiver_AIFightEnemies"]</xpath>
+			<order>Append</order>
+			<value>
+				<li Class="AV_Mechspots.JobGiver_StayAtMechSpot"/>
+			</value>
+		</match>
+	</Operation>		
+	
+	<!-- Add Modextension IsMechspotCompatible -->
+
+	<Operation Class="PatchOperationConditional">
+		<xpath>/Defs/ThinkTreeDef[defName="RM_Mechanoid_Sentinel"]</xpath>
+		<match Class="PatchOperationConditional">
+			<xpath>/Defs/ThinkTreeDef[defName="RM_Mechanoid_Sentinel"]/modExtensions</xpath>
+			<nomatch Class="PatchOperationAdd">
+				<xpath>/Defs/ThinkTreeDef[defName="RM_Mechanoid_Sentinel"]</xpath>
+				<order>Prepend</order>
+				<value>
+					<modExtensions>
+						<li Class="AV_Mechspots.IsMechspotCompatibleThinkTree">
+							<IsMechspotCompatible>true</IsMechspotCompatible>
+						</li>
+					</modExtensions>
+				</value>	
+			</nomatch>
+			<match Class="PatchOperationAdd">
+				<xpath>/Defs/ThinkTreeDef[defName="RM_Mechanoid_Sentinel"]/modExtensions</xpath>
+				<order>Prepend</order>
+				<value>
+					<li Class="AV_Mechspots.IsMechspotCompatibleThinkTree">
+						<IsMechspotCompatible>true</IsMechspotCompatible>
+					</li>
+				</value>	
+			</match>
+		</match>
+	</Operation>
+
+
+</Patch>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+	<name>[AV] Mechanoid Spots</name>
+	<author>Veltaris</author>
+	<supportedVersions>
+		<li>1.5</li>
+		<li>1.6</li>
+    </supportedVersions>
+	<modDependencies>
+		<li>
+			<packageId>Ludeon.RimWorld.Biotech</packageId>
+			<displayName>Biotech</displayName>
+		</li>
+		<li>
+			<packageId>brrainz.harmony</packageId>
+			<displayName>Harmony</displayName>
+			<downloadUrl>https://github.com/pardeike/HarmonyRimWorld/releases/latest</downloadUrl>
+			<steamWorkshopUrl>https://steamcommunity.com/workshop/filedetails/?id=2009463077</steamWorkshopUrl>
+		</li>
+		<li>
+			<packageId>Veltaris.Framework</packageId>
+			<displayName>[AV] Framework</displayName>
+			<steamWorkshopUrl>https://steamcommunity.com/sharedfiles/filedetails/?id=3237129936</steamWorkshopUrl>
+		</li>
+	</modDependencies>
+	<loadAfter>
+		<li>Ludeon.RimWorld</li>
+		<li>Ludeon.RimWorld.Royalty</li>
+		<li>Ludeon.RimWorld.Ideology</li>
+		<li>Ludeon.RimWorld.Biotech</li>
+		<li>brrainz.harmony</li>
+		<li>Veltaris.Framework</li>
+		<li>Veltaris.Jade</li>
+		<li>Veltaris.Mechtech</li>
+	</loadAfter>
+	<loadBefore>
+		<li>wvc.sergkart.biotech.MoreMechanoidsWorkModes</li>
+	</loadBefore>
+	<modIconPath IgnoreIfNoMatchingField="True">UI/ModIcon/AV_Mechtech</modIconPath>
+    <packageId>Veltaris.MechStations</packageId>
+	<modVersion>1.02.00</modVersion>
+    <description>This mod is about controlling where your mechs guard or chill at, by giving them their own special spots.</description>
+</ModMetaData>
