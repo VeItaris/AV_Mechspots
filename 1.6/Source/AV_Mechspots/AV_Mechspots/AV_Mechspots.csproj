@@ -60,6 +60,7 @@
   <ItemGroup>
     <Reference Include="AV_Framework">
       <HintPath>..\..\..\..\..\AV_Framework\1.6\Assemblies\AV_Framework.dll</HintPath>
+      <Private>False</Private>
     </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

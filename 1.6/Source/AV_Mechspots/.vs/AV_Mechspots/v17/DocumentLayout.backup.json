@@ -28,7 +28,7 @@
               "RelativeDocumentMoniker": "AV_Mechspots\\FloatMenuOptionProvider_.cs",
               "ToolTip": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RimWorld\\Mods\\AV_Mechspots\\1.6\\Source\\AV_Mechspots\\AV_Mechspots\\FloatMenuOptionProvider_.cs",
               "RelativeToolTip": "AV_Mechspots\\FloatMenuOptionProvider_.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAQwCwAAAAVAAAAAAAAAA==",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAQwBoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-08T18:18:25.301Z",
               "EditorCaption": ""
@@ -43,8 +43,7 @@
               "RelativeToolTip": "AV_Mechspots\\HarmonyPatches\\HarmonyPatch.cs",
               "ViewState": "AgIAAAYAAAAAAAAAAAAAAAoAAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-02T08:03:51.225Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-02T08:03:51.225Z"
             }
           ]
         }
